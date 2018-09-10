@@ -27,4 +27,19 @@ public class PageController {
     public String index(Model model) {
         return "index";
     }
+
+    @GetMapping("/bar")
+    public String bar(Model model) {
+        return "fragments/bar";
+    }
+
+    @GetMapping("/beer")
+    public String beer(Model model) {
+        return "fragments/beer";
+    }
+
+    @GetMapping("/student")
+    public String student(Model model) {
+        return "fragments/student";
+    }
 }
