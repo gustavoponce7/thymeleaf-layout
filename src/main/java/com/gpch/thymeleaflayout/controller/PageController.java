@@ -6,6 +6,7 @@ import com.gpch.thymeleaflayout.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PageController {
@@ -29,17 +30,26 @@ public class PageController {
     }
 
     @GetMapping("/bar")
-    public String bar(Model model) {
-        return "fragments/bar";
+    public ModelAndView bar(Model model) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("fragments/bar");
+        modelAndView.addObject("bars", barService.getAllBars());
+        return modelAndView;
     }
 
     @GetMapping("/beer")
-    public String beer(Model model) {
-        return "fragments/beer";
+    public ModelAndView beer(Model model) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("fragments/beer");
+        modelAndView.addObject("beers", beerService.getAllBeers());
+        return modelAndView;
     }
 
     @GetMapping("/student")
-    public String student(Model model) {
-        return "fragments/student";
+    public ModelAndView student(Model model) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("fragments/student");
+        modelAndView.addObject("students", studentService.getAllStudents());
+        return modelAndView;
     }
 }

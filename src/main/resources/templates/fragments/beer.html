@@ -7,28 +7,23 @@
 
 <body>
 
-<div layout:fragment="content">
-
-
-    <h1>Beer</h1>
-
-    <h2>Beer</h2>
-
-    <p>Lorem ipsum dolor sit amet, eu in mollis morbi nunc nulla
-        metus, ipsum etiam dictum natoque nec eleifend. Congue nec porttitor,
-        ullamcorper neque eu posuere tristique arcu, feugiat magna quam
-        tristique nonummy diam torquent, venenatis ut, fugit suspendisse quis
-        nec.</p>
-
-    <h3>Sub-Section</h3>
-
-    <p>Lorem ipsum dolor sit amet, eu in mollis morbi nunc nulla
-        metus, ipsum etiam dictum natoque nec eleifend. Congue nec porttitor,
-        ullamcorper neque eu posuere tristique arcu, feugiat magna quam
-        tristique nonummy diam torquent, venenatis ut, fugit suspendisse quis
-        nec.</p>
-
-</div>
+    <div layout:fragment="content">
+        <div class="container">
+            <h1>Beers</h1>
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr th:each="beer : ${beers}">
+                        <td th:text="${beer.id}"></td>
+                        <td th:text="${beer.name}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
