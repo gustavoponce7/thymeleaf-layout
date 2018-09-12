@@ -1,2 +1,2 @@
 # Thymeleaf-layout
-Thymeleaf Layout Implementation
+Thymeleaf Layout
