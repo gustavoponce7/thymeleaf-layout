@@ -23,33 +23,18 @@ public class ThymeleafLayoutApplication {
     @Bean
     public CommandLineRunner init(BarService barService,
                                   BeerService beerService,
-                                  StudentService studentService){
+                                  StudentService studentService) {
         return (args) -> {
-            //Creating Bar sample data
-            barService.createBar(Bar.builder().name("La Opera").build());
-            barService.createBar(Bar.builder().name("La Valenciana").build());
-            barService.createBar(Bar.builder().name("Montejo").build());
-            barService.createBar(Bar.builder().name("Salon Corona").build());
-            barService.createBar(Bar.builder().name("La China Poblana").build());
-
-            //Creating Beer sample data
-            beerService.createBeer(Beer.builder().name("Corona").build());
-            beerService.createBeer(Beer.builder().name("Gordon Five").build());
-            beerService.createBeer(Beer.builder().name("Kozel").build());
-            beerService.createBeer(Beer.builder().name("Siberian Crown").build());
-            beerService.createBeer(Beer.builder().name("Shiner").build());
-
-            //Creating Student sample data
-            studentService.createStudent(Student.builder().name("Student Sample 1").build());
-            studentService.createStudent(Student.builder().name("Student Sample 2").build());
-            studentService.createStudent(Student.builder().name("Student Sample 3").build());
-            studentService.createStudent(Student.builder().name("Student Sample 4").build());
-            studentService.createStudent(Student.builder().name("Student Sample 5").build());
+            //Creating sample data
+            for (int i = 1; i <= 70; i++) {
+                barService.createBar(Bar.builder().name("Bar " + i).build());
+                beerService.createBeer(Beer.builder().name("Beer " + i).build());
+                studentService.createStudent(Student.builder().name("Student " + i).build());
+            }
 
             log.info("Bar count: " + barService.getAllBars().size());
             log.info("Beer count: " + beerService.getAllBeers().size());
             log.info("Student count: " + studentService.getAllStudents().size());
-
         };
     }
 }
