@@ -16,11 +16,17 @@
                     <th>Id</th>
                     <th>Name</th>
                 </tr>
-                <tr th:each="bar : ${bars}">
+                <tr th:each="bar: ${barPage.content}">
                     <td th:text="${bar.id}"></td>
                     <td th:text="${bar.name}"></td>
                 </tr>
             </table>
+            <div th:if="${barPage.totalPages > 0}" class="pagination"
+                 th:each="pageNumber : ${pageNumbers}">
+                <a th:href="@{/bar(size=${barPage.size}, page=${pageNumber})}"
+                   th:text=${pageNumber}
+                   th:class="${pageNumber==barPage.number + 1} ? active"></a>
+            </div>
         </div>
     </div>
 </div>
